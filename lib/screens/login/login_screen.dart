@@ -4,13 +4,6 @@ import 'package:graville_operations/main.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Stack(children: [Image.asset('assets/image/image/.png')]),
-    );
-  }
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -26,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black12,
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -101,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "input password";
+                      return "please enter password";
                     }
 
                     if (value.length < 8) {
@@ -120,6 +113,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
+
+                const SizedBox(height: 18),
 
                 SizedBox(
                   width: double.infinity,
@@ -143,6 +138,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      " Forgot password?",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                ),
                 Row(
                   children: [
                     Expanded(child: Divider()),
