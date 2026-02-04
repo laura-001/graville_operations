@@ -20,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black12,
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 40),
@@ -95,22 +94,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "please enter password";
+                    if(value==null){
+                      return "Password cannot be null";
                     }
-
-                    if (value.length < 8) {
-                      return "Password must have a max of 8 characters";
-                    }
-
-                    if (!RegExp(r'[A-Z]').hasMatch(value)) {
+                    if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@!%*?&]{8,}").hasMatch(value)) {
                       return "Password must have at least one capital letter";
                     }
-
-                    if (!RegExp(r'[@_$]').hasMatch(value)) {
-                      return "Password must include @, _ or \$";
-                    }
-
                     return null;
                   },
                 ),
@@ -125,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
+                          // backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
