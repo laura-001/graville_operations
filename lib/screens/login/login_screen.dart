@@ -22,13 +22,14 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.black12,
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.fromLTRB(24, 0, 24, 40),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(Icons.person, size: 70, color: Colors.blue),
+
                 const SizedBox(height: 20),
 
                 const Text(
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
 
                     if (value.length < 8) {
-                      return "Password must have a min of 8 characters";
+                      return "Password must have a max of 8 characters";
                     }
 
                     if (!RegExp(r'[A-Z]').hasMatch(value)) {
@@ -174,21 +175,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
 
+                const SizedBox(height: 23),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.facebook, color: Colors.blue),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 18),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.g_mobiledata,
-                        color: Colors.blue,
-                        size: 32,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Image.asset(
+                          'assets/images/facebook.png',
+                          height: 40,
+                        ),
                       ),
-                      onPressed: () {},
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Image.asset(
+                          'assets/images/google.png',
+                          height: 40,
+                        ),
+                      ),
                     ),
                   ],
                 ),
