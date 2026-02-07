@@ -149,6 +149,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   controller: _otpController,
                   length: 6,
                   keyboardType: TextInputType.number,
+
                   defaultPinTheme: PinTheme(
                     width: 56,
                     height: 56,
@@ -163,20 +164,37 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
+
                   focusedPinTheme: PinTheme(
+                    width: 56,
+                    height: 56,
+                    textStyle: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.black,
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
+
                   submittedPinTheme: PinTheme(
+                    width: 56,
+                    height: 56,
+                    textStyle: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.black,
                       border: Border.all(color: Colors.blueAccent),
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
+
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'OTP is required';
@@ -186,8 +204,9 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     }
                     return null;
                   },
+
                   onCompleted: (pin) {
-                    _verifyOtp(); // auto-verify when 6 digits entered
+                    _verifyOtp();
                   },
                 ),
 
