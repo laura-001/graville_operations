@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graville_operations/screens/commons/widgets/custom_text_input.dart';
@@ -36,13 +38,31 @@ class _LoginScreenState extends State<LoginScreen> {
 
   String? passwordErrorMessage;
   String? emailErrorMessage;
+  
+  get body => null;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black12,
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.grey[500],
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/images/background.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+              // ignore: deprecated_member_use
+              child: Container(color: Colors.black.withOpacity(0)),
+            ),
+          ),
 
-      body: Center(
+      SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 40),
           child: Form(
@@ -177,6 +197,8 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+        ],
+    )
     );
   }
 }
