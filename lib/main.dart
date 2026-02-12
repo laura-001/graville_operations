@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Forgot Password Demo',
       themeMode: ThemeMode.light,
       theme: ThemeData(useMaterial3: true),
-      home: const SettingsScreen(),
+      home: const LoginScreen(),
     );
   }
 }
